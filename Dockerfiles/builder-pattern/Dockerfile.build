@@ -1,0 +1,13 @@
+FROM openjdk:latest
+
+# Set working directory inside the builder image
+WORKDIR /app
+
+# Copy the Java source file into the builder image
+COPY HelloWorld.java /app
+
+# Compile the Java source file
+RUN javac HelloWorld.java
+
+# Create the JAR file
+RUN jar cvf HelloWorld.jar HelloWorld.class
